@@ -1,6 +1,6 @@
 # React Lazyload Example
 
-- pages/container.tsx : Container 컴포넌트 리스트 테스트
+- pages/index.tsx : 기본 Lazy Load 테스트
 
 ## Getting Started
 
@@ -8,10 +8,9 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Test
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- 기본 Lazy Load
+  - height를 지정해줘야 스크롤에 따른 Lazy Load 기능이 정상적으로 동작한다.
