@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import LazyLoad from "react-lazyload";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
+
+const TIMES = Array(100).fill(0);
 
 const Home: NextPage = () => {
   return (
@@ -17,11 +20,22 @@ const Home: NextPage = () => {
 
       <Layout header={<Header />} footer={<Footer />}>
         <div className={styles.grid}>
-          <Card
-            uri={"https://nextjs.org/docs"}
-            title="Documentation"
-            description="Find in-depth information about Next.js features and API."
-          />
+          {TIMES.map((__, index) => {
+            return (
+              <LazyLoad
+                className={styles["lazy-load"]}
+                key={`${index}`}
+                throttle={200}
+                height={400}
+              >
+                <Card
+                  uri={"https://nextjs.org/docs"}
+                  title="Documentation"
+                  description="Find in-depth information about Next.js features and API."
+                />
+              </LazyLoad>
+            );
+          })}
         </div>
       </Layout>
     </div>
